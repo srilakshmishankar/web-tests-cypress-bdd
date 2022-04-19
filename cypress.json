@@ -1,0 +1,13 @@
+{
+    "baseUrl": "https://wetransfer.com",
+    "video": false,
+    "testFiles": "**/*.feature",
+    "viewportWidth": 1200,
+    "viewportHeight": 720,
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "json": false
+    }
+}
