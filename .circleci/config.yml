@@ -1,0 +1,27 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.0
+
+jobs:
+  run-cypress-tests:
+    machine:
+      image: ubuntu-2004:202010-01
+    working_directory: '~/repo'
+    steps:
+      - checkout
+      - node/install:
+          node-version: '16'
+      - run:
+          name: Install Cypress test dependencies
+          command: npm ci && npm i cypress
+      - run:
+          name: Run Cypress tests
+          command: npm test
+      - store_artifacts:
+          path: './cypress/results'
+
+workflows:
+  test:
+    jobs:
+      - run-cypress-tests
