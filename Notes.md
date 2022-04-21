@@ -35,4 +35,5 @@ I am not using static files for the tests but generating them on the go, better 
 Overall I have used some shortcuts to attempt maximum things as part of this assignment
 
 ##Bug:
-There is a bug in the received transfers section --> if title and message have space or special characters then that item is not visible on the list
+There is a bug in the received transfers section --> if title and message have space or special characters then that item is not visible on the list.
+Currently received section is not appearing at all which was working a day before (not sure about this behavior)

@@ -1,5 +1,5 @@
 Cypress.Commands.add('acceptCookies', () => {
-  if(Cypress.env('testEnv').includes('local')) {
+  if (Cypress.env('testEnv').includes('local')) {
     cy.get('.welcome__button--accept').click({ force: true });
   }
   cy.get('[data-route-type="plus"]').should('be.visible');

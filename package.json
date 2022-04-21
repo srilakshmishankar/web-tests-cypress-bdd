@@ -6,8 +6,8 @@
   "scripts": {
     "cy:open": "cypress open",
     "test": "cypress run --browser chrome",
-    "test:download": "cypress-tags run -e TAGS='@download'",
-    "test:upload": "cypress-tags run -e TAGS='@upload'",
+    "test:download": "cypress-tags run -e TAGS='@download' --browser chrome",
+    "test:upload": "cypress-tags run -e TAGS='@upload' --browser chrome",
     "test:all": "cypress-tags run -e TAGS='@stable'"
   },
   "keywords": [],
