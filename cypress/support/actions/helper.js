@@ -12,9 +12,6 @@ const transferButtonHandle = (() => {
     if ($footer.find('button:contains("I\'m 100% human")')) {
       cy.get('.transfer__button').click();
     }
-    if ($footer.find('button:contains("No")')) {
-      cy.get('.transfer__button').first().click();
-    }
   });
 })
 
