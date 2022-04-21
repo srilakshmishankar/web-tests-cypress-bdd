@@ -20,6 +20,10 @@ jobs:
           command: docker run -it -v $PWD:/e2e -w /e2e cypress/included:9.5.3
       - store_artifacts:
           path: './cypress/results'
+      - store_artifacts:
+          path: './cypress/videos'
+      - store_artifacts:
+          path: './cypress/screenshots'
 
 workflows:
   test:
