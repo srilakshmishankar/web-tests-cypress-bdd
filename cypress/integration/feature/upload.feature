@@ -47,7 +47,7 @@ Feature: File upload tests
     When user uploads a folder
     Then folder upload should be successful
 
-  #  #--- and node.js error to upload big file (needs some digging) ---
+  #--- and node.js error to upload big file (needs some digging) ---
   @unstable
   Scenario: Upload a large file
     When user uploads files exceeding 2GB

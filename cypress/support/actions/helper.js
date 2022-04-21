@@ -7,6 +7,18 @@ const fillForm = ({ displayName, email, message }) => {
   cy.wait(2000);
 };
 
+const transferButtonHandle = (() => {
+  cy.get('.transfer__footer').then(($footer) => {
+    if ($footer.find('button:contains("I\'m 100% human")')) {
+      cy.get('.transfer__button').click();
+    }
+    if ($footer.find('button:contains("No")')) {
+      cy.get('.transfer__button').first().click();
+    }
+  });
+})
+
 module.exports = {
   fillForm,
+  transferButtonHandle,
 };

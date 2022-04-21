@@ -1,6 +1,6 @@
 import 'cypress-file-upload';
 import 'cypress-wait-until';
-import { fillForm } from './form-fill-helper';
+import { fillForm } from './helper';
 
 Cypress.Commands.add('uploadFolder', (folderName, fileNames, size) => {
   fileNames.forEach((fileName) => {

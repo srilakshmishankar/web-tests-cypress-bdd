@@ -1,7 +1,7 @@
 import 'cypress-file-upload';
 import 'cypress-wait-until';
 import config from '../../config';
-import { fillForm } from './form-fill-helper';
+import { fillForm, transferButtonHandle } from './helper';
 
 Cypress.Commands.add('uploadFiles', (fileName, type) => {
   const displayName = `${fileName}-${type}`;
@@ -10,11 +10,7 @@ Cypress.Commands.add('uploadFiles', (fileName, type) => {
 
   fillForm({ displayName, email, message });
 
-  cy.get('.transfer__footer').then(($footer) => {
-    if ($footer.find('button:contains("I\'m 100% human")')) {
-      cy.get('.transfer__button').click();
-    }
-  });
+  transferButtonHandle();
   cy.get('.details', { timeout: 60000 })
     .should('contain.text', 'Your transfer details')
     .should('contain.text', '1 file')
@@ -53,12 +49,7 @@ Cypress.Commands.add('uploadMultipleFiles', (fileNames, size) => {
   const message = 'ThisIsATestMessage';
 
   fillForm({ displayName, email, message });
-
-  cy.get('.transfer__button').then(($footer) => {
-    if ($footer.find('button:contains("I\'m 100% human")')) {
-      cy.get('.transfer__button').click();
-    }
-  });
+  transferButtonHandle();
 
   cy.get('.details', { timeout: 60000 })
     .should('contain.text', 'Your transfer details')

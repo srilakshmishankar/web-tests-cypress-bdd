@@ -10,7 +10,7 @@
 //
 
 import './actions/data-clean-up';
-import './actions/form-fill-helper';
+import './actions/helper';
 import './actions/login';
 import './actions/logout';
 import './actions/upload-files';
