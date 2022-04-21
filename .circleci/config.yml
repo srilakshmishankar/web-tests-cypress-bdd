@@ -14,10 +14,10 @@ jobs:
           node-version: '16'
       - run:
           name: Install Cypress test dependencies
-          command: npm ci && npm i cypress
+          command: npm ci
       - run:
           name: Run Cypress tests
-          command: docker run -it -v $PWD:/e2e -w /e2e cypress/included:9.5.3
+          command: docker run -it -v $PWD:/e2e -w /e2e cypress/included:9.5.3 --browser chrome
       - store_artifacts:
           path: './cypress/results'
       - store_artifacts:
