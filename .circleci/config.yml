@@ -17,7 +17,7 @@ jobs:
           command: npm ci
       - run:
           name: Run Cypress tests
-          command: npm test --env testEnv=ci
+          command: cypress run --browser chrome --env testEnv=ci
       - store_artifacts:
           path: './cypress/results'
       - store_artifacts:
