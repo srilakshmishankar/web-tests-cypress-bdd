@@ -1,7 +1,6 @@
 Cypress.Commands.add('cleanUpData', () => {
   cy.get('[id="navigation.user.items.transfers"]').should('be.visible').click();
   cy.get('.transferlist').then(($list) => {
-    // if ($list.find('div:contains("All the transfers you send will appear here")')) {
     if ($list.find('ul:visible')) {
       cy.get('.transferitem').first().realHover();
       cy.get('[id="transfers_page_delete"]').first().invoke('show').click({ force: true });
