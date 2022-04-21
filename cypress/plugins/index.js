@@ -13,7 +13,19 @@
 // the project's config changing)
 
 const cucumber = require('cypress-cucumber-preprocessor').default;
+const fs = require('fs');
 
-module.exports = (on, config) => {
+module.exports = (on) => {
   on('file:preprocessor', cucumber());
-}
+
+  on('task', {
+    createFile({ filePath, sizeInBytes }) {
+      return new Promise((done) => {
+        const fh = fs.openSync(filePath, 'w');
+        fs.writeSync(fh, 'ok', Math.max(0, sizeInBytes));
+        fs.closeSync(fh);
+        done(true);
+      });
+    },
+  });
+};
