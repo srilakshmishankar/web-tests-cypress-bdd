@@ -1,14 +1,17 @@
 import config from '../../config';
 
 before(() => {
+  cy.clearCookies();
   cy.visit('/');
-  cy.acceptCookies();
-  cy.login(config.EMAIL, config.PASSWORD);
 });
 
-afterEach(() => {
-  cy.get('[id="transfers_page_delete"]').invoke('show').click();
-  cy.get('[id="transfers_page_confirm_multi_delete"]').click();
-  cy.get('[aria-label="Close panel"]').click();
+beforeEach(() => {
   cy.visit('/');
+  cy.login(config.EMAIL, config.PASSWORD);
+  cy.acceptCookies();
+});
+
+after(() => {
+  // We can use this to clean up data at the end
+  // cy.cleanUpData();
 });

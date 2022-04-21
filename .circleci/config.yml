@@ -5,8 +5,8 @@ orbs:
 
 jobs:
   run-cypress-tests:
-    machine:
-      image: ubuntu-2004:202010-01
+    docker:
+      - image: cypress/browsers:node16.14.0-chrome99-ff97
     working_directory: '~/repo'
     steps:
       - checkout
@@ -14,12 +14,16 @@ jobs:
           node-version: '16'
       - run:
           name: Install Cypress test dependencies
-          command: npm ci && npm i cypress
+          command: npm ci
       - run:
           name: Run Cypress tests
-          command: npm test
+          command: npx cypress run --browser chrome --env testEnv=ci
       - store_artifacts:
           path: './cypress/results'
+      - store_artifacts:
+          path: './cypress/videos'
+      - store_artifacts:
+          path: './cypress/screenshots'
 
 workflows:
   test:

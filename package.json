@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "test": "cypress run"
+    "test": "cypress run --browser chrome",
+    "test:download": "cypress-tags run -e TAGS='@download'",
+    "test:upload": "cypress-tags run -e TAGS='@upload'",
+    "test:all": "cypress-tags run -e TAGS='@stable'"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +17,7 @@
     "@testing-library/cypress": "^8.0.2",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-file-upload": "^5.0.8",
+    "cypress-real-events": "^1.7.0",
     "cypress-wait-until": "^1.7.2"
   },
   "devDependencies": {
