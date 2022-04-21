@@ -1,8 +1,8 @@
 import '@testing-library/cypress/add-commands';
 
 Cypress.Commands.add('acceptCookies', () => {
-  cy.get('.welcome__button--accept').click({ force: true });
-  cy.get('[data-route-type="plus"]').should('be.visible');
+  // cy.get('.welcome__button--accept').click({ force: true });
+  // cy.get('[data-route-type="plus"]').should('be.visible');
   cy.get('.transfer__button').click();
 });
 
